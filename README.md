@@ -1,18 +1,31 @@
-:construction: This readme is still being worked on
-# Topshop
+# Magento 2 Boilerplate
 
-TODO: Write a project description
+A boilerplate for working with Magento 2. Giving you
 
-## Development Environment
+## Starting your project
+1. Run `script/bootstrap`
+2. Run `script/setup`
+3. Run `script/server`
 
-TODO: Write up a setup for valet and homestead
+## Environment Variable Settings
 
-## Contributing
+## Scripts to rule them all!
+This boilerplate adopts a concept GitHub introduced of using scripts that are simple to use.
 
-1. Clone it!
-2. Install Magento: `composer install`
-3. Run Magento Setup: `php -d memory_limit=2G ./bin/magento setup:install --backend-frontname=admin --base-url=http://{{url}} --base-url-secure=https://{{url}} --db-name={{db_name}} --admin-firstname={{your first name}} --admin-lastname={{your last name}} --admin-email={{your email}} --admin-user={{your user name}} --admin-password={{password}}`
-4. Create your feature branch: `git checkout -b my-new-feature`
-5. Commit your changes: `git commit -am 'Add some feature'`
-6. Push to the branch: `git push origin my-new-feature`
-7. Submit a pull request :D
+### Bootstrap
+**Command:** `script/bootstrap`
+
+### Setup
+**Command:** `script/setup`
+
+### Server
+**Command:** `script/server`
+
+### Destroy
+**Command:** `script/destroy`
+
+### Magento Command Line
+**Command:** `script/magento`
+
+### SSH
+**Command:** `script/ssh`
