@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+DIR="$(dirname "$0")/.."
+cd $DIR
+
+if [ ! -f ".env" ]; then
+  if [ -f ".env.sample" ]; then
+    cp .env.sample .env
+  else
+    echo "UHHH: Looks like you're missing your .env & .env.sample files."
+
+  fi
+fi
+
+# Stop and remove any services from the docker-compose.yml file.
+echo "==> Destorying and cleaning up everything"
+docker-compose down
+echo "==> COMPLETE!"

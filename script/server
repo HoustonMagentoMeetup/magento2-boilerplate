@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -e
+cd "$(dirname "$0")/.."
+
+if [ ! -f ".env" ]; then
+  if [ -f ".env.sample" ]; then
+    cp .env.sample .env
+  else
+    echo "UHHH: Looks like you're missing your .env & .env.sample files."
+
+  fi
+fi
+
+# Run docker-compose services and allow for control + C to stop?
+if [ "$1" = "start" ] || [ "$1" = "" ]; then
+  echo "==> Starting up your Magento site"
+  docker-compose -f docker-compose.yml -f sync.yml start
+fi
+
+if [ "$1" = "stop" ]; then
+  echo "==> Stopping your Magento site"
+  docker-compose -f docker-compose.yml -f sync.yml stop
+fi

@@ -1,0 +1,3 @@
+appdata:
+  volumes:
+    - ./html:/var/www/html

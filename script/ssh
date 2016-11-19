@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# SSH project container
+docker-compose exec phpfpm /bin/bash

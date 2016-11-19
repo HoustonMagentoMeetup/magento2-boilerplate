@@ -1,0 +1,31 @@
+#!/bin/sh
+
+set -e
+cd "$(dirname "$0")/.."
+
+if [ ! -f ".env" ]; then
+  if [ -f ".env.sample" ]; then
+    cp .env.sample .env
+  else
+    echo "UHHH: Looks like you're missing your .env & .env.sample files."
+
+  fi
+fi
+
+PROJECT_EXISTS=false
+
+if [ -f "./html/composer.json" ] && [ -d "./html" ]; then
+  PROJECT_EXISTS=true
+fi
+
+# Copy all files from appdata volume to ./html for local access
+docker cp  "$(docker-compose ps -q appdata)":/var/www/html ./
+
+# Start up the app containers to get everything going then stop
+docker-compose -f docker-compose.yml -f sync.yml up -d app
+
+if [ $PROJECT_EXISTS = true ]; then
+  docker-compose exec phpfpm composer install 
+fi
+
+docker-compose -f docker-compose.yml -f sync.yml stop

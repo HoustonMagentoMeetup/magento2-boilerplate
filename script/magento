@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Call Magento command line within container
+docker-compose exec phpfpm ./bin/magento "$@"
