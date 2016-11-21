@@ -15,17 +15,23 @@ fi
 PROJECT_EXISTS=false
 
 if [ -f "./html/composer.json" ] && [ -d "./html" ]; then
+  echo "==> Existing project detected"
   PROJECT_EXISTS=true
 fi
 
 # Copy all files from appdata volume to ./html for local access
-docker cp  "$(docker-compose ps -q appdata)":/var/www/html ./
+echo "==> Copying Magento files from container"
+docker cp "$(docker-compose ps -q appdata)":/var/www/html ./
 
 # Start up the app containers to get everything going then stop
 docker-compose -f docker-compose.yml -f sync.yml up -d app
 
 if [ $PROJECT_EXISTS = true ]; then
-  docker-compose exec phpfpm composer install 
+  echo "==> Running composer install"
+
+  cd "$(dirname "$0")/../html"
+  composer install
+  cd "$(dirname "$0")/.."
 fi
 
 docker-compose -f docker-compose.yml -f sync.yml stop
