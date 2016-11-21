@@ -12,7 +12,7 @@ A boilerplate for working with Magento 2.
 **Docs coming soon**
 
 ## Scripts to rule them all!
-The boilerplate is using a script pattern that @github uses, [scripts to rule them all](https://github.com/github/scripts-to-rule-them-all). 
+The boilerplate is using a script pattern that @github uses, [scripts to rule them all](https://github.com/github/scripts-to-rule-them-all).
 
 ### Bootstrap
 Command: `script/bootstrap`
@@ -31,6 +31,7 @@ Setup takes your Magento 2 project and brings it into your bootstrapped environm
 
 ### Server
 Command: `script/server`
+
 Command: `script/server stop`
 
 The server sript lets you start and stop your environment so you can switch between multiple projects if needed.
