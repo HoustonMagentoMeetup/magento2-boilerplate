@@ -12,7 +12,7 @@ A boilerplate for working with Magento 2.
 **Docs coming soon**
 
 ## Scripts to rule them all!
-This boilerplate adopts a concept GitHub introduced of using scripts that are simple to use.
+The boilerplate is using a script pattern that @github uses, [scripts to rule them all](https://github.com/github/scripts-to-rule-them-all). 
 
 ### Bootstrap
 Command: `script/bootstrap`
