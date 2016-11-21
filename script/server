@@ -15,10 +15,10 @@ fi
 # Run docker-compose services and allow for control + C to stop?
 if [ "$1" = "start" ] || [ "$1" = "" ]; then
   echo "==> Starting up your Magento site"
-  docker-compose -f docker-compose.yml -f sync.yml start
+  docker-compose -f docker-compose.yml -f docker-sync.yml start
 fi
 
 if [ "$1" = "stop" ]; then
   echo "==> Stopping your Magento site"
-  docker-compose -f docker-compose.yml -f sync.yml stop
+  docker-compose -f docker-compose.yml -f docker-sync.yml stop
 fi

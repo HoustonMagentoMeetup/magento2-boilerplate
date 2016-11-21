@@ -24,7 +24,7 @@ echo "==> Copying Magento files from container"
 docker cp "$(docker-compose ps -q appdata)":/var/www/html ./
 
 # Start up the app containers to get everything going then stop
-docker-compose -f docker-compose.yml -f sync.yml up -d app
+docker-compose -f docker-compose.yml -f docker-sync.yml up -d app
 
 if [ $PROJECT_EXISTS = true ]; then
   echo "==> Running composer install"
@@ -34,4 +34,4 @@ if [ $PROJECT_EXISTS = true ]; then
   cd "$(dirname "$0")/.."
 fi
 
-docker-compose -f docker-compose.yml -f sync.yml stop
+docker-compose -f docker-compose.yml -f docker-sync.yml stop

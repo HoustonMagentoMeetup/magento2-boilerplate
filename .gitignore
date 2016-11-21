@@ -4,7 +4,7 @@
 # Allow boilerplate files in repo
 !.gitignore
 !docker-compose.yml
-!sync.yml
+!docker-sync.yml
 !.env.sample
 !script/
 !script/*
